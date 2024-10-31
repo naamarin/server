@@ -1,10 +1,18 @@
 const express = require('express');
+const cors = require('cors');
 const port = 8081;
 const app = express();
 app.use(express.json());
+app.use(cors());
 
 let ID = 1;
-let TABS = [];
+let TABS = [
+    {
+        id: ID++,
+        text: "first note",
+        color: "pink"
+    }
+];
 
 app.get('/tabs',(req, res) => {
     res.json(TABS);
